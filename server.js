@@ -18,8 +18,8 @@ var winston = require('winston'),
     request = require('request');
 
 var CONFIG_DIR = process.env.CONFIG_DIR || process.cwd(),
-    CONFIG_FILE = path.join(CONFIG_DIR, 'config.yml'),
-    SAMPLE_FILE = path.join(__dirname, '_config.yml'),
+    CONFIG_FILE = path.join(CONFIG_DIR, 'config.json'),
+    SAMPLE_FILE = path.join(__dirname, '_config.json'),
     STATE_FILE = path.join(CONFIG_DIR, 'state.json'),
     EVENTS_LOG = path.join(CONFIG_DIR, 'events.log'),
     ACCESS_LOG = path.join(CONFIG_DIR, 'access.log'),
@@ -59,9 +59,7 @@ function loadConfiguration () {
         winston.info('No previous configuration found, creating one');
         fs.writeFileSync(CONFIG_FILE, fs.readFileSync(SAMPLE_FILE));
     }
-//      return JSON.parse(fs.readFileSync(CONFIG_FILE));
-//    return yaml.safeLoad(fs.readFileSync(CONFIG_FILE));
-      return require(CONFIG_FILE); // Aparently this will handle parsing json and file system stuff.
+      return require(CONFIG_FILE);
 }
 
 /**

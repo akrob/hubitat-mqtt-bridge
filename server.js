@@ -59,8 +59,9 @@ function loadConfiguration () {
         winston.info('No previous configuration found, creating one');
         fs.writeFileSync(CONFIG_FILE, fs.readFileSync(SAMPLE_FILE));
     }
-
-    return yaml.safeLoad(fs.readFileSync(CONFIG_FILE));
+//      return JSON.parse(fs.readFileSync(CONFIG_FILE));
+//    return yaml.safeLoad(fs.readFileSync(CONFIG_FILE));
+      return require(CONFIG_FILE); // Aparently this will handle parsing json and file system stuff.
 }
 
 /**

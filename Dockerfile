@@ -13,10 +13,10 @@ RUN npm install --production
 COPY . /usr/src/app
 
 # Expose Configuration Volume
-VOLUME /config
+VOLUME /data
 
 # Set config directory
-ENV CONFIG_DIR=/config
+ENV CONFIG_DIR=/data
 
 # Expose the web service port
 EXPOSE 8080

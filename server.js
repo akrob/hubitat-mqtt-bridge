@@ -18,7 +18,7 @@ var winston = require('winston'),
     request = require('request');
 
 var CONFIG_DIR = process.env.CONFIG_DIR || process.cwd(),
-    CONFIG_FILE = path.join(CONFIG_DIR, 'config.json'),
+    CONFIG_FILE = path.join(CONFIG_DIR, 'options.json'),
     SAMPLE_FILE = path.join(__dirname, '_config.json'),
     STATE_FILE = path.join(CONFIG_DIR, 'state.json'),
     EVENTS_LOG = path.join(CONFIG_DIR, 'events.log'),
